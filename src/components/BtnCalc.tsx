@@ -7,11 +7,12 @@ interface props {
   text: string;
   color?: string;
   height?: boolean;
+  action: (numberText: string) => void;
 }
 
-const BtnCalc = ({text, color = '#2D2D2D', height = false}: props) => {
+const BtnCalc = ({text, color = '#2D2D2D', height = false, action}: props) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => action(text)}>
       <View
         style={{
           ...styles.button,
